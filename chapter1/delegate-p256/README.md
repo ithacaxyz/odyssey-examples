@@ -15,7 +15,7 @@ The example below will walk you through how we can use our p256 key (think face 
 
 - Run anvil in Odyssey mode to enable support for EIP-7702 and P256 precompile:
 
-```rust
+```bash
 anvil --odyssey
 ```
 
@@ -23,7 +23,7 @@ Anvil automatically generates dev accounts for us deployed on the local chain, f
 
 - Now generate a P256 private and public key pair using the python script in the repo
 
-```rust
+```bash
 python p256.py gen
 ```
 
@@ -31,13 +31,13 @@ This script will generate a `p256` private and public key pair, save them to `pr
 
 - Deploy [P256Delegation](src/P256Delegation.sol) contract, which we we will be delegating to
 
-```rust
+```bash
 forge create P256Delegation --private-key "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80"
 ```
 
 - Send an EIP-7702 transaction, which delegates to our newly deployed contract. This transaction will both authorize the delegation and set it to use our P256 public key that we have generated previously:
 
-```rust
+```bash
 export DELEGATE_ADDRESS=<enter-delegate-contract-address>
 export PUBKEY_X=<enter-public-key-x>
 export PUBKEY_Y=<enter-public-key-y>
@@ -46,14 +46,14 @@ cast send 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266 'authorize(uint256,uint256)
 
 - Verify that new code at our EOA account contains the [delegation designation](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-7702.md#delegation-designation), a special opcode prefix to highlight the code has a special purpose:
 
-```rust
+```bash
 $ cast code 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
 0xef0100...
 ```
 
 - Prepare signature for the to be able to transact on behalf of the EOA account by using the `transact` function of the delegation contract. Let's generate a signature for sending 1 ether to zero address by using our P256 private key:
 
-```rust
+```bash
 python p256.py sign $(cast abi-encode 'f(uint256,address,bytes,uint256)' $(cast call 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266 'nonce()(uint256)') '0x0000000000000000000000000000000000000000' '0x' '1000000000000000000')
 ```
 

@@ -1,14 +1,15 @@
 # Delegating an account to a P256 key
 
-EIP-7720 and EIP-7212 allow to delegate control over an EOA to a P256 key. This has large potential for UX improvement as P256 keys are adopted by commonly used protocols like [Apple Secure Enclave](https://support.apple.com/en-au/guide/security/sec59b0b31ff/web) and [WebAuthn](https://webauthn.io).
+EIP-7720 and EIP-7212 allow to delegate control over an EOA to a P256 key. This has large potential for UX improvement as P256 keys are adopted by commonly used protocols like [Apple Secure Enclave](https://support.apple.com/en-au/guide/security/sec59b0b31ff/web) and [WebAuthn](https://webauthn.io). 
 
-EIP-7212: Introduces a precompile for the secp256r1 elliptic curve, a curve that is widely used in protocols like [Apple Secure Enclave](https://support.apple.com/en-au/guide/security/sec59b0b31ff/web) and [WebAuthn](https://webauthn.io). This curve allows users to securely store private keys in hardware modules and sign messages using biometric authentication. The precompile enables efficient verification of these signatures directly on-chain, reducing gas costs by up to 50x compared to conventional methods that don't leverage a precompile.
+## Why do EIP-7702+EIP-7212 matter?
+The usual flow of crypto user onboarding works as follows: The user has to set up a new wallet, write down a mnemonic and keep it safe at all times. What if there was an easier way to securely store your private key? Web2 has already solved this problem with introducing passkeys, enabling users to use very familiar authentication methods such as touch id, while keeping their passwords secure. This example will showcase how the upcoming EIP's EIP-7720 and EIP-7212 (already implemented in Odyssey with Chapter 1), will enable you to use your passkey to sign an on-chain message and help onboarding users that may be novice in crypto onto your Dapp.
 
-EIP-7702: Paths the way for account abstraction, which will revolutionize on-chain user experience. This EIP introduces a new transaction type, allowing an Externally Owned Accounts (EOAs) to function like a smart contract. This unlocks features such as gas sponsorship, transaction bundling or granting limited permissions to a sub-key.
+EIP-7212 introduces a precompile for the secp256r1 elliptic curve, a curve that is widely used in protocols like [Apple Secure Enclave](https://support.apple.com/en-au/guide/security/sec59b0b31ff/web) and [WebAuthn](https://webauthn.io). 
 
-## Scenario
+EIP-7702 introduces a new transaction type, allowing an Externally Owned Accounts (EOAs) to function like a smart contract. This unlocks features such as gas sponsorship, transaction bundling or granting limited permissions to a sub-key.
 
-The usual flow of crypto user onboarding is as follows: The user has to set up a new wallet, write down a mnemonic and keep it safe at all times. What if there was an easier way to securely store your private key? Web2 has already solved this problem with introducing passkeys, enabling users to use very familiar authentication methods such as touch id, while keeping their passwords safe. This example will showcase how the upcoming EIP's EIP-7720 and EIP-7212 (already implemented in Odyssey with Chapter 1), will enable you to use your passkey to sign an on-chain message and help onboarding users that may be novice in crypto onto your Dapp.
+The example below will walk you through how we can use our p256 key (think face id or touch id) to sign an on-chain transaction.
 
 ### Steps involved
 

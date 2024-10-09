@@ -31,7 +31,9 @@ forge create contracts/SimpleDelegateContract.sol:SimpleDelegateContract --priva
 export SIMPLE_DELEGATE_ADDRESS="<enter-contract-address>"
 ```
 
-- Alice (delegator) can delegate authority to a smart contract to send specific transactions from her account by signing the following message. First, let's verify that we don't have a smart contract yet associated to Alice's account, if that's the case the command below should return a `0x` response: 
+- Alice (delegator) can sign a message which will delegate all calls to her address to the bytecode of smart contract we've just deployed.
+
+First, let's verify that we don't have a smart contract yet associated to Alice's account, if that's the case the command below should return a `0x` response: 
 
 ```bash
 $ cast code $ALICE_ADDRESS

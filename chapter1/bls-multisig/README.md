@@ -226,13 +226,3 @@ let receipt = multisig
 assert!(receipt.status());
 assert!(provider.get_balance(operation.to).await? > U256::ZERO);
 ```
-
-## Running the Rust example
-Complete code for the example can be found in [rust](./rust) directory.
-
-You can run it by doing:
-```shell
-cd chapter1
-forge build
-cargo run --manifest-path ./bls-multisig/rust/Cargo.toml
-```

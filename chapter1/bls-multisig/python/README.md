@@ -1,6 +1,6 @@
 # Python Alphanet Multisig
 
-This example demonstrates an integration of [BlsMultisig](../../../src/BLSMultisig.sol) with Python.
+This example demonstrates an integration of [BlsMultisig](../../contracts/BLSMultisig.sol) with Python.
 
 ## Running the example
 

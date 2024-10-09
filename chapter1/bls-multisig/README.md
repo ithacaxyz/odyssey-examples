@@ -1,10 +1,9 @@
 # BLS Multisig
 
 ## Context
-EIP-2537 introduces a set of precompiled contracts enabling elliptic curve operations directly on the Ethereum Virtual Machine (EVM). This makes it feasible to use BLS signatures natively on Ethereum and dramatically reduces the cost and complexity of these operations, unlocking efficient use of BLS-based schemes like multisig.
-
-## Scenario
 Imagine a DAO consisting of 100 members (signers in total), where at least 50 members need to approve any transfer of funds from the treasury to ensure that funds cannot be misused without sufficient consensus from the key holders.
+
+EIP-2537 introduces a set of precompiled contracts enabling elliptic curve operations directly on the Ethereum Virtual Machine (EVM). This makes it feasible to use BLS signatures natively on Ethereum and dramatically reduces the cost and complexity of these operations, unlocking efficient use of BLS-based schemes like multisig.
 
 ## Implementation
 

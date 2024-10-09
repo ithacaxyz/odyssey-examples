@@ -11,7 +11,7 @@ EIP-7702 introduces a new transaction type, allowing an Externally Owned Account
 
 The example below will walk you through how we can use our p256 key (think face id or touch id) to sign an on-chain transaction.
 
-### Steps involved
+## Steps involved
 
 - Run anvil in Odyssey mode to enable support for EIP-7702 and P256 precompile:
 

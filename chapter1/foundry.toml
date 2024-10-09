@@ -4,3 +4,4 @@ out = "out"
 libs = ["lib"]
 
 eof = true
+alphanet = true

@@ -26,7 +26,7 @@ export BOB_PK="0x5de4111afa1a4b94908f83103eb1f1706367c2e68ca870fc3fb9a804cdab365
 - Deploy a contract which delegates calls from the user and executes on their behalf. The contract itself is very basic, it will delegate the call and emit an `Executed` event for debugging purposes:
 
 ```bash
-forge create contracts/SimpleDelegateContract.sol:SimpleDelegateContract --private-key $BOB_PK
+forge create SimpleDelegateContract --private-key $BOB_PK
 
 export SIMPLE_DELEGATE_ADDRESS="<enter-contract-address>"
 ```

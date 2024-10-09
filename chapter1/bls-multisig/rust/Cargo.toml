@@ -1,0 +1,17 @@
+[package]
+name = "odyssey-bls-multisig"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+alloy = { version = "0.4", features = [
+    "providers",
+    "contract",
+    "sol-types",
+    "node-bindings",
+    "rpc-types",
+    "getrandom",
+] }
+tokio = { version = "1", features = ["full"] }
+blst = "0.3"
+rand = "0.8"

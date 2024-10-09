@@ -56,7 +56,9 @@ require(BLS.Pairing(g1Points, g2Points), "invalid signature");
 
 If all of those steps are successful, we can execute the operation.
 
-### Rust integration
+### Integration
+
+We've prepated 2 code snippets demonstrating integration of the above contract to aggregate and submit signatures obtained off-chain. Examples are written in [Rust](./rust) and [Python](./python). We will walk through the Rust code, but the Python code is very similar.
 
 Now we will demonstrate how to interact with our contract using Rust and how we can sign messages which can be verified on Solidity side. We will use [blst](https://github.com/supranational/blst) library for BLS operations.
 

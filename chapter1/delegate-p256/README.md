@@ -29,7 +29,7 @@ python p256.py gen
 
 This script will generate a `p256` private and public key pair, save them to `private.pem` and `public.pem` respectively, and print the keys in hex format.
 
-- Deploy [P256Delegation](src/P256Delegation.sol) contract, which we we will be delegating to
+- Deploy [P256Delegation](src/P256Delegation.sol) contract, which we will be delegating to
 
 ```bash
 forge create P256Delegation --private-key "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80"

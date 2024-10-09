@@ -61,7 +61,7 @@ $ cast code $ALICE_ADDRESS
 0xef0100...
 ```
 
-Note that in this over-simplified example, you’ll already see some issues e.g. Bob could send the transaction to any address, since there’s such restriction in the signed authorization. To address this issue, you would need to add additional setup functions which would be called on user's bytecode once delegation has been applied.
+Note that in this over-simplified example, you’ll already see some issues e.g. anyone could send the transaction to any address on Alice behalf, since there’s such restriction in the signed authorization. To address this issue, you would need to add additional setup functions which would be called on user's bytecode once delegation has been applied.
 
 ## Testing with foundry
 

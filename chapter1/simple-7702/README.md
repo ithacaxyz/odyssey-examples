@@ -1,6 +1,6 @@
 # Simple delegate transactions with 7702
 
-Imagine a DeFi protocol wants to enable gas sponsoring for its users, to improve the UX of their product. To do this, Alice can submit an authorization message to a smart contract. Bob can broadcast the message on Alice's behalf and sponsor gas for her transaction.
+Imagine a DeFi protocol that wants to enable gas sponsoring for its users, to improve the UX of their product. To do this, Alice can authorize a smart contract which will allow the protocol to broadcast the message on Alice's behalf and sponsor gas for her transaction.
 
 [EIP-7702](https://eips.ethereum.org/EIPS/eip-7702) paths the way for account abstraction, which will revolutionize on-chain user experience. This EIP introduces a new transaction type, allowing an Externally Owned Accounts (EOAs) to function like a smart contract. This unlocks features such as gas sponsorship, transaction bundling or granting limited permissions to a sub-key. Essentially the way it works is that we can associate smart contract byte code with an EOA account, the EOA can then temporarily act like a smart contract.
 

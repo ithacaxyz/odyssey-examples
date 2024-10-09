@@ -88,7 +88,7 @@ Data section:
 +-----------------------------------------------------------------------------------------------------------------------------+
 ```
 
-We can see that contract has 1 container section. Container sections are used to store so-called subcontainers — contracts which can be deployed from our contract via `EOFCREATE` opcode. In this case out contract has a method deploying `Simple` contract, so we have a single subcontainer.
+We can see that contract has 1 container section. Container sections are used to store so-called subcontainers — contracts which can be deployed from our contract via `EOFCREATE` opcode. In this case our contract has a method deploying `Simple` contract, so we have a single subcontainer.
 
 We can also see that our immutable `DATA` was placed into the data section. Data section is a separate part of bytecode which can store arbitrary immutable data which can be accessed via special `DATALOAD*` opcodes. The rest of the data section is contract metadata.
 
@@ -128,11 +128,11 @@ As you can see, EOF-compiled contracts are 5-10% more gas efficient.
 EOF disables a number of opcodes. Right now, if your contract contains any of those it will get compiled but will not be deployable.
 
 The banned opcodes are:
-    - Code introspection opcodes: `CODESIZE`, `CODECOPY`, `EXTCODESIZE`, `EXTCODECOPY`, `EXTCODEHASH`
-    - Dynamic jumps: `JUMP`, `JUMPI`, `PC`
-    - Gas introspection opcodes: `GAS`, `GASLIMIT`, `GASPRICE`
-    - Legacy call instructions: `CREATE`, `CALL`, `DELEGATECALL`, `CREATE2`, `STATICCALL`
-    - Legacy opcodes: `SELFDESTRUCT`, `CALLCODE`
+- Code introspection opcodes: `CODESIZE`, `CODECOPY`, `EXTCODESIZE`, `EXTCODECOPY`, `EXTCODEHASH`
+- Dynamic jumps: `JUMP`, `JUMPI`, `PC`
+- Gas introspection opcodes: `GAS`, `GASLIMIT`, `GASPRICE`
+- Legacy call instructions: `CREATE`, `CALL`, `DELEGATECALL`, `CREATE2`, `STATICCALL`
+- Legacy opcodes: `SELFDESTRUCT`, `CALLCODE`
 
 Your contracts are likely to get affected by `EXTCODESIZE` ban, because it made checks like `address(...).code.length > 0` impossible. Another common pattern is calls/staticcalls in low-level assembly. Those would need to either be cahnged to high-level calls or changed to `ext*` instructions. i.e
 ```solidity
@@ -140,7 +140,7 @@ assembly {
     call(gas(), to, value, offset, size, retOffset, retSize)
 }
 ```
-would need to be changed to
+would become
 ```solidity
 assembly {
     extcall(to, offset, size, value)

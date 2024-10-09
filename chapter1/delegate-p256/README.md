@@ -51,7 +51,7 @@ $ cast code 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
 0xef0100...
 ```
 
-- Prepare signature for the to be able to transact on behalf of the EOA account by using the `transact` function of the delegation contract. Let's generate a signature for sending 1 ether to zero address by using our P256 private key:
+- Prepare signature to be able to transact on behalf of the EOA account by using the `transact` function of the delegation contract. Let's generate a signature for sending 1 ether to zero address by using our P256 private key:
 
 ```bash
 python p256.py sign $(cast abi-encode 'f(uint256,address,bytes,uint256)' $(cast call 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266 'nonce()(uint256)') '0x0000000000000000000000000000000000000000' '0x' '1000000000000000000')

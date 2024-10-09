@@ -99,7 +99,7 @@ async def main():
 
 if __name__ == "__main__":
     try:
-        anvil = subprocess.Popen(["anvil", "--alphanet"], stdout=subprocess.PIPE)
+        anvil = subprocess.Popen(["anvil", "--odyssey"], stdout=subprocess.PIPE)
         asyncio.run(main())
     finally:
         anvil.terminate()

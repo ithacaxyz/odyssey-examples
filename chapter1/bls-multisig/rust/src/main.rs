@@ -56,7 +56,7 @@ fn sign_message(keys: &[&SecretKey], msg: &[u8]) -> BLS::G2Point {
 #[tokio::main]
 pub async fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Spawn Anvil node and connect to it
-    let provider = ProviderBuilder::new().on_anvil_with_config(|config| config.arg("--alphanet"));
+    let provider = ProviderBuilder::new().on_anvil_with_config(|config| config.arg("--odyssey"));
 
     // Generate 100 BLS keys
     let (private_keys, public_keys) = generate_keys(100);

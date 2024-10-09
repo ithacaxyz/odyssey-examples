@@ -1,4 +1,4 @@
-# Python Alphanet Multisig
+# Python BLS Multisig
 
 This example demonstrates an integration of [BlsMultisig](../../contracts/BLSMultisig.sol) with Python.
 
@@ -16,4 +16,4 @@ Then, you can run the example by executing the following command:
 python multisig.py
 ```
 
-This will spin up an Anvil instance in Alphanet mode, deploy the multisig contract and execute a simple operation signed by random BLS keys.
+This will spin up an Anvil instance with Odyssey features enabled, deploy the multisig contract and execute a simple operation signed by random BLS keys.

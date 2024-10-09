@@ -1,5 +1,5 @@
 [package]
-name = "alphanet-bls-multisig"
+name = "odyssey-bls-multisig"
 version = "0.1.0"
 edition = "2021"
 

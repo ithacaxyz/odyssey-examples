@@ -40,7 +40,7 @@ $ cast code $ALICE_ADDRESS
 0x
 ```
 
-- Alice can sign an EIP-7702 sign authorization using `cast wallet sign-auth` as follows:
+- Alice can sign an EIP-7702 authorization using `cast wallet sign-auth` as follows:
 
 ```bash
 SIGNED_AUTH=$(cast wallet sign-auth $SIMPLE_DELEGATE_ADDRESS --private-key $ALICE_PK)

@@ -12,7 +12,7 @@ alloy::sol! {
     #[derive(Debug, Default, PartialEq, Eq, PartialOrd, Ord)]
     #[sol(rpc)]
     BLSMultisig,
-    "../../out/BLSMultisig.sol/BLSMultisig.json"
+    "../../contracts/out/BLSMultisig.sol/BLSMultisig.json"
 }
 
 /// Generates `num` BLS keys and returns them as a tuple of private and public keys

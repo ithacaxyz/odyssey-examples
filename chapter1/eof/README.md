@@ -101,24 +101,31 @@ Contracts compiled for EOF tend to consume less gas. You can verify this yoursel
 
 ```bash
 $ forge test
-Ran 1 test for test/P256.t.sol:BLSTest
-[PASS] test() (gas: 8951)
-Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 7.74ms (3.89ms CPU time)
+Ran 1 test for contracts/test/SimpleDelegateContract.t.sol:SimpleDelegateContractTest
+[PASS] test() (gas: 301928)
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 6.87ms (2.15ms CPU time)
 
-Ran 2 tests for test/BLS.t.sol:BLSTest
+Ran 1 test for contracts/test/P256.t.sol:BLSTest
+[PASS] test() (gas: 8951)
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 8.86ms (4.14ms CPU time)
+
+Ran 2 tests for contracts/test/BLS.t.sol:BLSTest
 [PASS] test() (gas: 321781)
 [PASS] testAggregated() (gas: 439327)
-Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 9.27ms (9.88ms CPU time)
 
 $ forge test --eof
-Ran 1 test for test/P256.t.sol:BLSTest
-[PASS] test() (gas: 8191)
-Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 10.62ms (4.74ms CPU time)
+Ran 1 test for contracts/test/SimpleDelegateContract.t.sol:SimpleDelegateContractTest
+[PASS] test() (gas: 261751)
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 9.37ms (2.47ms CPU time)
 
-Ran 2 tests for test/BLS.t.sol:BLSTest
+Ran 1 test for contracts/test/P256.t.sol:BLSTest
+[PASS] test() (gas: 8191)
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 11.44ms (4.54ms CPU time)
+
+Ran 2 tests for contracts/test/BLS.t.sol:BLSTest
 [PASS] test() (gas: 314754)
 [PASS] testAggregated() (gas: 425091)
-Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 11.04ms (9.69ms CPU time)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 12.74ms (11.11ms CPU time)
 ```
 
 As you can see, EOF-compiled contracts are 5-10% more gas efficient.

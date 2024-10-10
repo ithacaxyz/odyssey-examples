@@ -8,7 +8,7 @@ EIP-2537 introduces a set of precompiled contracts enabling elliptic curve opera
 ## Implementation
 
 ### Contract
-We demonstrate a simple multisignature contract [BLSMultisig](../contracts/BLSMultisig.sol) which keeps a list of signers public keys and allows executing arbitrary operations which are signed by a subset of signers. Both stored public keys and signatures can be aggregated, thus allowing for much better scalability for large numbers of signers vs ECDSA. Let's walk through the contract's code.
+We demonstrate a simple multisignature contract [BLSMultisig](../contracts/src/BLSMultisig.sol) which keeps a list of signers public keys and allows executing arbitrary operations which are signed by a subset of signers. Both stored public keys and signatures can be aggregated, thus allowing for much better scalability for large numbers of signers vs ECDSA. Let's walk through the contract's code.
 
 BLS signing operates on two curves: G1 and G2. In our case we will store public keys on G1 while signatures and messages will be on G2. To sign or verify a message consisting of arbitrary bytes, we need to firstly map the message to a point on G2. There is a commonly used [algorithm](https://datatracker.ietf.org/doc/html/rfc9380#name-hashing-to-a-finite-field) for this mapping, we are using its implementation in Solidity:
 

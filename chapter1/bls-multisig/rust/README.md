@@ -1,6 +1,6 @@
 # Rust BLS Multisig
 
-This example demonstrates an integration of [BlsMultisig](../../contracts/BLSMultisig.sol) with Rust.
+This example demonstrates an integration of [BlsMultisig](../../contracts/src/BLSMultisig.sol) with Rust.
 
 ## Running the example
 

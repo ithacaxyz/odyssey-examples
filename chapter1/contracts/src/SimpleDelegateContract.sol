@@ -13,7 +13,7 @@ contract SimpleDelegateContract {
     function execute(Call[] memory calls) external payable {
         for (uint256 i = 0; i < calls.length; i++) {
             Call memory call = calls[i];
-            (bool success, ) = call.to.call{value: call.value}(call.data);
+            (bool success,) = call.to.call{value: call.value}(call.data);
             require(success, "Call failed");
             emit Executed(call.to, call.value, call.data);
         }

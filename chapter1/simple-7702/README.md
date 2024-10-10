@@ -67,17 +67,11 @@ Note that in this over-simplified example, you’ll already see some issues e.g.
 
 To test this delegation feature, you may use the `vm.etch` cheatcode in your tests as follows: 
 
-```bash
-import {Test} from "forge-std/Test.sol";
-import {SimpleDelegateContract} from "../src/SimpleDelegateContract.sol";
-
-contract DelegationTest is Test {
-    function test() public {
-        SimpleDelegateContract delegation = new SimpleDelegateContract();
-        // this sets ALICE's EOA code to the deployed contract code
-        vm.etch(ALICE, address(delegation).code);
-    }
-}
+```solidity
+// this will inject delegation designation into ALICE's code
+vm.etch(ALICE, bytes.concat(hex"ef0100", abi.encodePacked(contractToDelegate)));
 ```
 
 This cheat code allows you to **simulate that ALICE's account is no longer a regular EOA but a contract**(like `P256Delegation`) and then test how delegations or transactions behave from that new "smart contract" EOA.
+
+You can check out complete example in [SimpleDelegateContract.t.sol](../contracts/test/SimpleDelegateContract.t.sol)

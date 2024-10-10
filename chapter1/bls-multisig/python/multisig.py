@@ -54,7 +54,7 @@ def sign_operation(sks: list[int], operation: Operation) -> G2Point:
 
 async def main():
     bls_multisig_artifact = json.load(
-        open(pathlib.Path(__file__).parent.parent.parent.parent / "out/BLSMultisig.sol/BLSMultisig.json")
+        open(pathlib.Path(__file__).parent.parent.parent / "contracts/out/BLSMultisig.sol/BLSMultisig.json")
     )
 
     web3 = AsyncWeb3(AsyncWeb3.AsyncHTTPProvider("http://localhost:8545"))

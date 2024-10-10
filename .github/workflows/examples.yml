@@ -1,0 +1,43 @@
+name: examples
+
+on:
+  pull_request:
+  merge_group:
+  push:
+    branches: [main]
+
+env:
+  FOUNDRY_PROFILE: ci
+
+jobs:
+  check:
+    strategy:
+      fail-fast: true
+
+    name: Foundry project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+
+      - name: Run Forge build
+        id: build
+        run: forge build --root chapter1
+
+      - name: Rust BLS multisig example
+        run: cargo run --manifest-path  ./chapter1/bls-multisig/rust/Cargo.toml
+      
+      - name: Python BLS multisig example
+        run: | 
+            pip install web3 py_ecc
+            python ./chapter1/bls-multisig/python/multisig.py

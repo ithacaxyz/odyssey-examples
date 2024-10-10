@@ -13,7 +13,8 @@ contract SimpleDelegateContractTest is Test {
         // make it forward all calls to the deployed contract
         vm.etch(ALICE, bytes.concat(hex"ef0100", abi.encodePacked(delegation)));
 
-        ALICE.call{value: 1e18}("");
+        (bool success,) = ALICE.call{value: 1e18}("");
+        require(success);
 
         SimpleDelegateContract.Call[] memory calls = new SimpleDelegateContract.Call[](1);
         calls[0] = SimpleDelegateContract.Call({data: "", to: address(0), value: 1e18});

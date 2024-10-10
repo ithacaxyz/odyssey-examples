@@ -1,6 +1,6 @@
 # Python BLS Multisig
 
-This example demonstrates an integration of [BlsMultisig](../../contracts/BLSMultisig.sol) with Python.
+This example demonstrates an integration of [BlsMultisig](../../contracts/src/BLSMultisig.sol) with Python.
 
 ## Running the example
 

@@ -1,10 +1,8 @@
 # Simple delegate transactions with 7702
 
-Imagine a DeFi protocol that wants to enable gas sponsoring for its users, to improve the UX of their product. To do this, Alice can authorize a smart contract which will allow the protocol to broadcast the message on Alice's behalf and sponsor gas for her transaction.
+Onboarding novices onto Ethereum can be challenging: Users need to create a new wallet, buy some ETH for gas before they can send their first transaction. [EIP-7702](https://eips.ethereum.org/EIPS/eip-7702) unlocks features such as gas sponsorship, but also other use cases such as transaction bundling or granting limited permissions to a sub-key. This EIP introduces a new transaction type, allowing an Externally Owned Account (EOA) to function like a smart contract. Essentially, the way it works is that we can associate smart contract bytecode with an EOA account, allowing EOA to act like a smart contract.
 
-[EIP-7702](https://eips.ethereum.org/EIPS/eip-7702) paths the way for account abstraction, which will revolutionize on-chain user experience. This EIP introduces a new transaction type, allowing an Externally Owned Accounts (EOAs) to function like a smart contract. This unlocks features such as gas sponsorship, transaction bundling or granting limited permissions to a sub-key. Essentially the way it works is that we can associate smart contract bytecode with an EOA account, allowing EOA to act like a smart contract.
-
-This example will walk you through how EIP-7702 can be used to submit a transaction via delegate. 
+This example demonstrates how EIP-7702 allows Alice to authorize a smart contract to execute a transaction on her behalf, with Bob sponsoring the gas fees for a seamless experience.
 
 ## Steps involved
 
@@ -14,7 +12,7 @@ This example will walk you through how EIP-7702 can be used to submit a transact
 anvil --odyssey
 ```
 
-- Anvil comes with developer accounts pre-funded, with the commands below we will go ahead and use them
+- Anvil comes with pre-funded developer accounts which we can use for the example going forward
 
 ```bash
 # using anvil dev accounts 
@@ -23,7 +21,7 @@ export ALICE_PK="0x59c6995e998f97a5a0044966f0945389dc9e86dae88c7a8412f4603b6b786
 export BOB_PK="0x5de4111afa1a4b94908f83103eb1f1706367c2e68ca870fc3fb9a804cdab365a"
 ```
 
-- Deploy a contract which delegates calls from the user and executes on their behalf. The contract itself is very basic, it will delegate the call and emit an `Executed` event for debugging purposes:
+- We need to deploy a contract which delegates calls from the user and executes on their behalf. The contract itself is very basic, it will delegate the call and emit an `Executed` event for debugging purposes:
 
 ```bash
 forge create SimpleDelegateContract --private-key $BOB_PK

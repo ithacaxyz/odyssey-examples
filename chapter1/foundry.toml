@@ -6,4 +6,4 @@ cache_path = "contracts/cache"
 libs = ["contracts/lib"]
 
 eof = true
-alphanet = true
+odyssey = true

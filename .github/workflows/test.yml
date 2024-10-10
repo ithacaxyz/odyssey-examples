@@ -1,0 +1,37 @@
+name: test
+
+on:
+  pull_request:
+  merge_group:
+  push:
+    branches: [main]
+
+env:
+  FOUNDRY_PROFILE: ci
+
+jobs:
+  check:
+    strategy:
+      fail-fast: true
+      matrix:
+        chapter: [chapter1]
+
+    name: Foundry project - ${{ matrix.chapter }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+
+      - name: Run Forge build
+        id: build
+        working-directory: ./${{ matrix.chapter }}
+        run: forge build
+
+      - name: Run Forge test
+        id: test
+        working-directory: ./${{ matrix.chapter }}
+        run: forge test

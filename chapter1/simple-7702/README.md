@@ -50,7 +50,7 @@ SIGNED_AUTH=$(cast wallet sign-auth $SIMPLE_DELEGATE_ADDRESS --private-key $ALIC
 cast send $ALICE_ADDRESS "execute((bytes,address,uint256)[])" "[("0x",$(cast az),0)]" --private-key $BOB_PK --auth $SIGNED_AUTH
 ```
 
-This is done by passing `--auth` flag, which can accept either an address or an encoded authorization. The transaction above would firstly apply a signed authorization, making Alice’s EOA to have bytecode delegating to deployed contract. After that it will be executed as a call to Alice which code would already include the newly added bytecode, allowing us to succesfully call `execute` and transact on her behalf.
+This is done by passing `--auth` flag, which can accept either an address or an encoded authorization. The transaction above would firstly apply a signed authorization, making Alice’s EOA to have bytecode delegating to deployed contract. After that it will be executed as a call to Alice which code would already include the newly added bytecode, allowing us to successfully call `execute` and transact on her behalf.
 
 - Verify that our command was successful, by checking Alice's code which now contains the [delegation designation](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-7702.md#delegation-designation) prefix `0xef01`:
 

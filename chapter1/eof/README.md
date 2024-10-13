@@ -1,10 +1,10 @@
 # EOF
 
 ## Context
-EOF (Ethereum Object Format) is a series of EIPs which aim to improve effenciency & security of smart contract deployment & execution. EOF introduces a new binary format for smart contracts on the Ethereum blockchain.
+EOF (Ethereum Object Format) is a series of EIPs which aim to improve efficiency & security of smart contract deployment & execution. EOF introduces a new binary format for smart contracts on the Ethereum blockchain.
 
 ## How to compile for EOF
-Support for EOF compilation is avaiable natively in [foundry](https://github.com/foundry-rs/foundry).
+Support for EOF compilation is available natively in [foundry](https://github.com/foundry-rs/foundry).
 
 Compile the contracts with EOF, using the `--eof` flag. Note that this will pull a docker image and might take a while to download on the first iteration
 ```bash
@@ -141,7 +141,7 @@ The banned opcodes are:
 - Legacy call instructions: `CREATE`, `CALL`, `DELEGATECALL`, `CREATE2`, `STATICCALL`
 - Legacy opcodes: `SELFDESTRUCT`, `CALLCODE`
 
-Your contracts are likely to get affected by `EXTCODESIZE` ban, because it made checks like `address(...).code.length > 0` impossible. Another common pattern is calls/staticcalls in low-level assembly. Those would need to either be cahnged to high-level calls or changed to `ext*` instructions. i.e
+Your contracts are likely to get affected by `EXTCODESIZE` ban, because it made checks like `address(...).code.length > 0` impossible. Another common pattern is calls/staticcalls in low-level assembly. Those would need to either be changed to high-level calls or changed to `ext*` instructions. i.e
 ```solidity
 assembly {
     call(gas(), to, value, offset, size, retOffset, retSize)

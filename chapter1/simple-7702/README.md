@@ -59,7 +59,7 @@ $ cast code $ALICE_ADDRESS
 0xef0100...
 ```
 
-Note that in this over-simplified example, you’ll already see some issues e.g. anyone could send the transaction to any address on Alice behalf, since there’s such restriction in the signed authorization. To address this issue, you would need to add additional setup functions which would be called on user's bytecode once delegation has been applied.
+Note that in this over-simplified example, you’ll already see some issues e.g. anyone could send the transaction to any address on Alice's behalf, since there’s such restriction in the signed authorization. To address this issue, you would need to add additional setup functions which would be called on user's bytecode once delegation has been applied.
 
 ## Testing with foundry
 
@@ -72,4 +72,4 @@ vm.etch(ALICE, bytes.concat(hex"ef0100", abi.encodePacked(contractToDelegate)));
 
 This cheat code allows you to **simulate that ALICE's account is no longer a regular EOA but a contract**(like `P256Delegation`) and then test how delegations or transactions behave from that new "smart contract" EOA.
 
-You can check out complete example in [SimpleDelegateContract.t.sol](../contracts/test/SimpleDelegateContract.t.sol)
+You can check out the complete example in [SimpleDelegateContract.t.sol](../contracts/test/SimpleDelegateContract.t.sol)

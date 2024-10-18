@@ -5,7 +5,7 @@ This repository provides a step-by-step walk through for builders interested in 
 ### Chapter 1 
 - [Simple Example for EIP-7702](./chapter1/simple-7702/): Showcases how EIP-7702 transactions work
 - [Delegate an account to a p256 key](./chapter1/delegate-p256/): Describes how EIP-7702+EIP-7212 provide the ability to sign a message with a P256 key
-- [BLS Multisig](./chapter1/bls-multisig/): In-depth walk-through how to implement a Multisig based on BLS signatures verified through precompiles from EIP-2537
+- [BLS Multisig](./chapter1/bls-multisig/): In-depth walk-through of how to implement a Multisig based on BLS signatures verified through precompiles from EIP-2537
 - [EOF](./chapter1/eof/): Instructions on how to deploy and inspect contracts in the new EOF format
 
 ### Build & Test

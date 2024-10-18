@@ -74,7 +74,7 @@ alloy::sol! {
 
 This will generate bindings for `BLSMultisig` and `BLS`, allowing us to reuse the same G1/G2 structures in Rust code.
 
-Now, let's define helpers for converting between our contract's structures and `blst` types. `blst` provides serialization methods for both G1 and G2 points which are a bit different from the format defined in [EIP-2537](https://eips.ethereum.org/EIPS/eip-2537). Converting between the two requires some bit manipulation.
+Now, let's define helpers for converting between our contract's structures and `blst` types. `blst` provides serialization methods for both G1 and G2 points which are a bit different from the format defined in [EIP-2537](https://eips.ethereum.org/EIPS/eip-2537). Converting between the two requires some bit of manipulation.
 ```rust
 use blst::min_pk::{PublicKey, Signature};
 

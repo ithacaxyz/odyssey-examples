@@ -7,6 +7,7 @@ This repository provides a step-by-step walk through for builders interested in 
 - [Delegate an account to a p256 key](./chapter1/delegate-p256/): Describes how EIP-7702+EIP-7212 provide the ability to sign a message with a P256 key
 - [BLS Multisig](./chapter1/bls-multisig/): In-depth walk-through how to implement a Multisig based on BLS signatures verified through precompiles from EIP-2537
 - [EOF](./chapter1/eof/): Instructions on how to deploy and inspect contracts in the new EOF format
+- [ERC20 Fee](./chapter1/erc20-fee/): Describes how EIP-7702 provides the ability to pay ERC20 as gas fee to the gas sponsoer in an ERC20 transfer tx atomically.
 
 ### Build & Test
 

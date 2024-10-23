@@ -56,7 +56,8 @@ SIGNED_AUTH=$(cast wallet sign-auth $ERC20_FEE --private-key $ALICE_PK)
 - Alice can sign an off-chain data to authorize anyone to send ERC20 on behave of Alice in exchange of ERC20 fee
 
 ```bash
-SIGNED=$(cast wallet sign --no-hash $(cast keccak256 $(cast abi-encode 'f(uint256,address,address,uint256,address,uint256)' 0 $ERC20 $CHARLES_ADDRESS 1000000000000000000 $ERC20 1000)) --private-key $ALICE_PK)
+ERC20_TRANSFER_CALLDATA=$(cast calldata 'transfer(address,uint256)' $CHARLES_ADDRESS 1000000000000000000)
+SIGNED=$(cast wallet sign --no-hash $(cast keccak256 $(cast abi-encode 'f(uint256,address,bytes,uint256,address,uint256)' 0 $ERC20 $ERC20_TRANSFER_CALLDATA 0 $ERC20 1000)) --private-key $ALICE_PK)
 V=$(echo $SIGNED | cut -b 1-2,131-132)
 R=$(echo $SIGNED | cut -b 1-66)
 S=$(echo $SIGNED | cut -b 1-2,67-130)
@@ -65,7 +66,7 @@ S=$(echo $SIGNED | cut -b 1-2,67-130)
 - Bob (delegate) relays the transaction on Alice's behalf using his own private key and thereby paying gas fee from his account and get the ERC20 fee:
 
 ```bash
-cast send $ALICE_ADDRESS "sendERC20(address,address,uint256,address,uint256,uint8,bytes32,bytes32)" $ERC20 $CHARLES_ADDRESS 1000000000000000000 $ERC20 1000 $V $R $S  --private-key $BOB_PK --auth $SIGNED_AUTH
+cast send $ALICE_ADDRESS "execute(address,bytes,uint256,address,uint256,uint8,bytes32,bytes32)" $ERC20 $ERC20_TRANSFER_CALLDATA 0 $ERC20 1000 $V $R $S  --private-key $BOB_PK --auth $SIGNED_AUTH
 ```
 
 - Bob will receive the ERC20 token as the fee, and Charles will receive the ERC20 token

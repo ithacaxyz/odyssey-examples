@@ -26,13 +26,14 @@ contract ERC20Fee {
     uint256 public nonce;
 
     /// @notice Main entrypoint to send tx.
-    function sendERC20(IERC20 token, address to, uint256 amount, IERC20 feeToken, uint256 fee, uint8 v, bytes32 r, bytes32 s) public {
-        bytes32 digest = keccak256(abi.encode(nonce++, token, to, amount, feeToken, fee));
+    function execute(address to, bytes memory data, uint256 value, IERC20 feeToken, uint256 fee, uint8 v, bytes32 r, bytes32 s) public {
+        bytes32 digest = keccak256(abi.encode(nonce++, to, data, value, feeToken, fee));
         address addr = ecrecover(digest, v, r, s);
 
         require(addr == address(this));
 
+        (bool success,) = to.call{value: value}(data);
+        require(success, "call failed");
         require(feeToken.transfer(msg.sender, fee));
-        require(token.transfer(to, amount));
     }
 }

@@ -26,7 +26,7 @@ export CHARLES_ADDRESS="0x90F79bf6EB2c4f870365E785982E1f101E93b906"
 forge create TestERC20 --private-key $BOB_PK
 export ERC20=<ERC20 addr>
 cast send $ERC20 'mint(address,uint256)' $ALICE_ADDRESS 10000000000000000000 --private-key $BOB_PK # 10E9 tokens
-cast call $ERC20 'balance(address)' $ALICE_ADDRESS
+cast call $ERC20 'balance(address)(uint256)' $ALICE_ADDRESS
 ```
 
 - We need to deploy a contract which verifies the user signature and execute ERC20 transfers.:
@@ -71,7 +71,7 @@ cast send $ALICE_ADDRESS "execute(address,bytes,uint256,address,uint256,uint8,by
 
 - Bob will receive the ERC20 token as the fee, and Charles will receive the ERC20 token
 ```bash
-cast call $ERC20 "balance(address)" $BOB_ADDRESS
-cast call $ERC20 "balance(address)" $CHARLES_ADDRESS
+cast call $ERC20 "balance(address)(uint256)" $BOB_ADDRESS
+cast call $ERC20 "balance(address)(uint256)" $CHARLES_ADDRESS
 ```
 

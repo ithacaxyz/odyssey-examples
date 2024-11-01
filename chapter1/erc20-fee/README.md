@@ -53,7 +53,7 @@ $ cast code $ALICE_ADDRESS
 SIGNED_AUTH=$(cast wallet sign-auth $ERC20_FEE --private-key $ALICE_PK)
 ```
 
-- Alice can sign an off-chain data to authorize anyone to send ERC20 on behave of Alice in exchange of ERC20 fee
+- Alice can sign an off-chain data to authorize anyone to send ERC20 on behalf of Alice in exchange of ERC20 fee
 
 ```bash
 ERC20_TRANSFER_CALLDATA=$(cast calldata 'transfer(address,uint256)' $CHARLES_ADDRESS 1000000000000000000)

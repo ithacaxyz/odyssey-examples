@@ -27,9 +27,9 @@ $ cast code <contract address>
 
 ## Inspecting EOF
 
-EOF defines separation of bytecode into sections which include header, code sections, container sections and data sections.
+EOF separates bytecode into sections that include a header, code sections, container sections and data sections.
 
-Let's take a look at such simple contract:
+Let's take a look at a simple contract:
 ```solidity
 contract Simple {}
 
@@ -88,11 +88,11 @@ Data section:
 +-----------------------------------------------------------------------------------------------------------------------------+
 ```
 
-We can see that contract has 1 container section. Container sections are used to store so-called subcontainers — contracts which can be deployed from our contract via `EOFCREATE` opcode. In this case our contract has a method deploying `Simple` contract, so we have a single subcontainer.
+We can see that the contract has 1 container section. Container sections are used to store so-called subcontainers — contracts which can be deployed from our contract via the `EOFCREATE` opcode. In this case our contract has a method deploying a `Simple` contract, so we have a single subcontainer.
 
-We can also see that our immutable `DATA` was placed into the data section. Data section is a separate part of bytecode which can store arbitrary immutable data which can be accessed via special `DATALOAD*` opcodes. The rest of the data section is contract metadata.
+We can also see that our immutable `DATA` was placed into the data section. The data section is a separate part of bytecode which can store arbitrary immutable data that can be accessed via special `DATALOAD*` opcodes. The rest of the data section is contract metadata.
 
-Deployed contract also has a single code section. Code sections are similar to functions. They accept fixed number of inputs and return fixed number of outputs. In this case optimizer decided to only include a single code section, but if you will try disabling the optimizer (with `--optimize=false`) you will see that without it we have 18 code sections each of which keeps either external function or internal compiler logic.
+The deployed contract also has a single code section. Code sections are similar to functions. They accept a fixed number of inputs and return a fixed number of outputs. In this case the optimizer decided to only include a single code section, but if you try disabling the optimizer (with `--optimize=false`) you will see that without it we have 18 code sections, each of which keeps either external function or internal compiler logic.
 
 
 ## Gas usage
@@ -154,4 +154,4 @@ assembly {
 }
 ```
 
-Additionally, EOF call instructions return 0 on success and not on failure. For more context, check out the [corresponding EIP](https://eips.ethereum.org/EIPS/eip-7069).
+Additionally, EOF call instructions, rather than a boolean, return 0 on success, 1 for revert, and 2 for failure. For more context, check out the [corresponding EIP](https://eips.ethereum.org/EIPS/eip-7069).

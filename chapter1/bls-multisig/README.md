@@ -19,7 +19,7 @@ function getOperationPoint(Operation memory op) public view returns (BLS.G2Point
 }
 ```
 
-Second contract's method `verifyAndExecute` contains core logic for signature verification, let's walk through it.
+The contract's second method, `verifyAndExecute`, contains core logic for signature verification, let's walk through it.
 
 We start with aggregating the signers public keys into a single point on G1. This is done by simply invoking G1ADD precompile with all public keys. After this step, we will have a single point on G1 which represents the aggregated public key of all signers. We require signers to be sorted to ensure that all signers are unique and valid.
 
@@ -39,7 +39,7 @@ for (uint256 i = 0; i < operation.signers.length; i++) {
 }
 ```
 
-After that, we perform signature verification, by invoking the PAIRING precompile with the aggregated public key and the signature. Notice that we are invoking `getOperationPoint` method we've defined earlier to map the operation to a point on G2 which we can verify against the signature.
+After that, we perform signature verification, by invoking the PAIRING precompile with the aggregated public key and the signature. Notice that we are invoking the `getOperationPoint` method we've defined earlier to map the operation to a point on G2 which we can verify against the signature.
 ```solidity
 BLS.G1Point[] memory g1Points = new BLS.G1Point[](2);
 BLS.G2Point[] memory g2Points = new BLS.G2Point[](2);
@@ -58,7 +58,7 @@ If all of those steps are successful, we can execute the operation.
 
 ### Integration
 
-We've prepared 2 code snippets demonstrating integration of the above contract to aggregate and submit signatures obtained off-chain. Examples are written in [Rust](./rust) and [Python](./python). We will walk through the Rust code, but the Python code is very similar.
+We've prepared 2 code snippets demonstrating an integration of the above contract to aggregate and submit signatures obtained off-chain. Examples are written in [Rust](./rust) and [Python](./python). We will walk through the Rust code, but the Python code is very similar.
 
 We will use [blst](https://github.com/supranational/blst) library for BLS operations.
 

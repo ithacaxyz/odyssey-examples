@@ -19,7 +19,7 @@ function getOperationPoint(Operation memory op) public view returns (BLS.G2Point
 }
 ```
 
-Secondly, the contract method `verifyAndExecute` contains core logic for signature verification, let's walk through it.
+The contract's second method, `verifyAndExecute`, contains core logic for signature verification, let's walk through it.
 
 We start with aggregating the signers public keys into a single point on G1. This is done by simply invoking G1ADD precompile with all public keys. After this step, we will have a single point on G1 which represents the aggregated public key of all signers. We require signers to be sorted to ensure that all signers are unique and valid.
 

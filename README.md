@@ -1,6 +1,6 @@
 # Odyssey Examples
 
-This repository provides a step-by-step walk through for builders interested in the developer-preview features available on [Odyssey](https://www.ithaca.xyz/updates/introducing-ithaca), a L2 built for developers to innovate. We are rolling out each Chapter with new features for you to build on. 
+This repository provides a step-by-step walkthrough for builders interested in the developer-preview features available on [Odyssey](https://www.ithaca.xyz/updates/introducing-ithaca), a L2 built for developers to innovate. We are rolling out each Chapter with new features for you to build on. 
 
 ### Chapter 1 
 - [Simple Example for EIP-7702](./chapter1/simple-7702/): Showcases how EIP-7702 transactions work

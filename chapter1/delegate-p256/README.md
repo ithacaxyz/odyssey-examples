@@ -8,7 +8,7 @@ The traditional flow of crypto onboarding experience can feel cumbersome: Users 
 EIP-7212 introduces a precompile for the **secp256r1** elliptic curve, a curve that is widely used in protocols like [Apple Secure Enclave](https://support.apple.com/en-au/guide/security/sec59b0b31ff/web) and [WebAuthn](https://webauthn.io). 
 EIP-7702 introduces a new transaction type, allowing externally owned accounts (EOAs) to function like a smart contract. This unlocks features such as gas sponsorship, transaction bundling or granting limited permissions to a sub-key.
 
-This example demonstrates how the upcoming EIP's EIP-7720 and EIP-7212 (already live in Odyssey's Chapter 1), will enable you to use a passkey to sign an onchain message, improving the onboarding experience for crypto novices using your Dapp.
+This example demonstrates how the upcoming EIP's EIP-7702 and EIP-7212 (already live in Odyssey's Chapter 1), will enable you to use a passkey to sign an onchain message, improving the onboarding experience for crypto novices using your Dapp.
 
 ## Steps involved
 

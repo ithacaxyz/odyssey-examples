@@ -3,6 +3,7 @@
 ## Structure
 
 - [contracts](./contracts): Solidity smart contracts powering the examples
+- [batch-delegate](./batch-delegate/): Example of batch delegation authorization using EIP-7702
 - [bls-multisig](./bls-multisig): Multisig based on BLS signatures verified through precompiles from EIP-2537
 - [eof](./eof): Introduction to EOF
 - [simple-7702](./simple-7702): Demo of full EIP-7702 flow with cast and forge

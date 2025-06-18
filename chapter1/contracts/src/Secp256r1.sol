@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.23;
 
-//( @title Secp256r1
+/// @title Secp256r1
 /// @notice Wrapper function to abstract low level details of call to the Secp256r1
 ///         signature verification precompile as defined in EIP-7212, see
 ///         <https://eips.ethereum.org/EIPS/eip-7212>.

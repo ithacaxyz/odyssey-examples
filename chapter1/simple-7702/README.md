@@ -26,7 +26,9 @@ export BOB_PK="0x5de4111afa1a4b94908f83103eb1f1706367c2e68ca870fc3fb9a804cdab365
 ```bash
 forge create SimpleDelegateContract --private-key $BOB_PK
 
+# Copy the contract address from the output above and replace <contract-address> below
 export SIMPLE_DELEGATE_ADDRESS="<enter-contract-address>"
+# Example: export SIMPLE_DELEGATE_ADDRESS="0x5FbDB2315678afecb367f032d93F642f64180aa3"
 ```
 
 - Alice (delegator) can sign a message which will delegate all calls to her address to the bytecode of smart contract we've just deployed.

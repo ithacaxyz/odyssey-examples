@@ -38,7 +38,7 @@ contract ERC20Fee {
         bytes32 digest = keccak256(abi.encode(nonce++, to, data, value, feeToken, fee));
         address addr = ecrecover(digest, v, r, s);
 
-        require(addr == address(this));
+        require(addr != address(0) && addr == address(this), "invalid signature");
 
         (bool success,) = to.call{value: value}(data);
         require(success, "call failed");
